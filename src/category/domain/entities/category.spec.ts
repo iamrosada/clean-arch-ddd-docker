@@ -88,7 +88,25 @@ describe("Category Unit Tests", () => {
 
   test("getter of name field", () => {
     const category = new Category({ name: "Movie" });
-
     expect(category.name).toBe("Movie");
+  });
+
+  test("getter of setter of description field", () => {
+    let category = new Category({
+      name: "Movie",
+    });
+    expect(category.description).toBeNull();
+
+    category = new Category({
+      name: "Movie",
+      description: "some description",
+    });
+    expect(category.description).toBe("some description");
+
+    category = new Category({
+      name: "Movie",
+    });
+
+    category["description"] = "other description";
   });
 });
